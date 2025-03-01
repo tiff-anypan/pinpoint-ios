@@ -13,6 +13,8 @@ struct NewPackageView: View {
     // Connects back to PackageListView to determine whether this view should be presented or not
     @Binding var newPackagePresented: Bool
     
+    var onSave: (Package) -> Void // Used to add the package to the List View
+    
     var body: some View {
         VStack {
             Text("New Package")
@@ -57,6 +59,8 @@ struct NewPackageView: View {
                 Button {
                     if viewModel.canSave {
                         viewModel.save()
+                        let newPackage = Package(id: UUID().uuidString, packageName: viewModel.packageName, trackingNumber: viewModel.trackingNumber, shippingCompany: viewModel.shippingCompany, delivered: false)
+                        onSave(newPackage) // call closure to pass new pkg back
                         newPackagePresented = false
                     } else {
                         // Display error message for user by changing this @Published variable in our VM
@@ -93,8 +97,7 @@ struct NewPackageView: View {
 }
 
 #Preview {
-    NewPackageView(newPackagePresented: Binding(
-        get: { return true },
-        set: { _ in
-    }))
+    NewPackageView(newPackagePresented: .constant(true)) { _ in
+        // Do nothing, just a placeholder for preview
+    }
 }

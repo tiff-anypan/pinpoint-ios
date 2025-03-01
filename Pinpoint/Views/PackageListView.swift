@@ -10,7 +10,7 @@ import SwiftUI
 struct PackageListView: View {
     
     @StateObject var viewModel: PackageListViewModel
-    var packages: [Package] = [
+    @State private var packages: [Package] = [
         Package(id: "1", packageName: "Chalk bag", trackingNumber: "1Z7F572V0227894600", shippingCompany: "UPS", delivered: true),
         Package(id: "2", packageName: "Bannoch Pro backpack", trackingNumber: "1Z7F572V0227894600", shippingCompany: "UPS", delivered: false)
     ]
@@ -20,17 +20,31 @@ struct PackageListView: View {
             List {
                 Section(header: Text("On the Way")) {
                     ForEach(packages.filter { !$0.delivered }) { package in PackageListItemView(package: package)
+                            .swipeActions {
+                                Button("Delete") {
+                                    if let index = packages.firstIndex(where: { $0.id == package.id }) { packages.remove(at: index)
+                                    }
+                                }
+                                .tint(.red)
+                            }
                     }
                 }
                 
                 Section(header: Text("Delivered")) {
                     ForEach(packages.filter { $0.delivered }) { package in PackageListItemView(package: package)
+                            .swipeActions {
+                                Button("Delete") {
+                                    // TODO: Make this delete animation look better.
+                                    if let index = packages.firstIndex(where: { $0.id == package.id }) { packages.remove(at: index)
+                                    }
+                                }
+                                .tint(.red)
+                            }
                     }
                 }
-
             }
             .listStyle(.plain)
-            .navigationTitle("Pinpoint")
+            .navigationTitle("Pinpoint 📍")
             .toolbar {
                 Button {
                     // Action to add a new package to track
@@ -43,7 +57,8 @@ struct PackageListView: View {
             // Presents the sheet when the binding in isPresented is true.
             .sheet(isPresented: $viewModel.showingNewPackageView, content: {
                 // When we hit save, in the NewPackageView, we update this newPackageRepresented variable that we pass in, which in this case is a binding that un-presents the view.
-                NewPackageView(newPackagePresented: $viewModel.showingNewPackageView)
+                NewPackageView(newPackagePresented: $viewModel.showingNewPackageView, onSave: { newPackage in packages.append(newPackage)
+                })
             })
         }
     }
