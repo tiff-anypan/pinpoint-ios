@@ -55,13 +55,13 @@ struct NewPackageView: View {
                 .autocorrectionDisabled()
                 
                 Button {
-//                    if viewModel.canSave {
-//                        viewModel.save()
-//                        newBuildPresented = false
-//                    } else {
-//                        // Display error message for user by changing this @Published variable in our VM
-//                        viewModel.showAlert = true
-//                    }
+                    if viewModel.canSave {
+                        viewModel.save()
+                        newPackagePresented = false
+                    } else {
+                        // Display error message for user by changing this @Published variable in our VM
+                        viewModel.showAlert = true
+                    }
                 } label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 25.0)
@@ -77,12 +77,16 @@ struct NewPackageView: View {
                 
             }
             .scrollContentBackground(.hidden)
+            .alert(isPresented: $viewModel.showAlert, content: {
+                Alert(title: Text("Error"),
+                      message: Text("Please fill in all fields!"))
+            })
         }
     }
     
     private func textFieldsNotEmpty() -> Bool {
-        return !viewModel.packageName.isEmpty ||
-               !viewModel.trackingNumber.isEmpty ||
+        return !viewModel.packageName.isEmpty &&
+               !viewModel.trackingNumber.isEmpty &&
                !viewModel.shippingCompany.isEmpty
     }
     
