@@ -17,6 +17,11 @@
 		41032F2F2D6E903D00D4636D /* PinpointUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41032F2E2D6E903D00D4636D /* PinpointUITests.swift */; };
 		41032F312D6E903D00D4636D /* PinpointUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41032F302D6E903D00D4636D /* PinpointUITestsLaunchTests.swift */; };
 		411B16112D72C87400201E70 /* NewPackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B16102D72C87400201E70 /* NewPackageView.swift */; };
+		411B16192D73ECA100201E70 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B16182D73ECA100201E70 /* ShareViewController.swift */; };
+		411B16202D73ECA100201E70 /* AddPackage.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 411B16162D73ECA100201E70 /* AddPackage.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		411B162A2D73F2F400201E70 /* NewPackageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FC88B82D6EEA2300BC8C21 /* NewPackageViewModel.swift */; };
+		411B162B2D73F32800201E70 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4144DD562D6EE1B400F4D4E4 /* Package.swift */; };
+		411B162C2D73F33100201E70 /* NewPackageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 411B16102D72C87400201E70 /* NewPackageView.swift */; };
 		4144DD532D6EE07F00F4D4E4 /* PackageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4144DD522D6EE07F00F4D4E4 /* PackageListView.swift */; };
 		4144DD552D6EE09B00F4D4E4 /* PackageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4144DD542D6EE09B00F4D4E4 /* PackageListViewModel.swift */; };
 		4144DD572D6EE1B400F4D4E4 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4144DD562D6EE1B400F4D4E4 /* Package.swift */; };
@@ -40,7 +45,28 @@
 			remoteGlobalIDString = 41032F0A2D6E903B00D4636D;
 			remoteInfo = Pinpoint;
 		};
+		411B161E2D73ECA100201E70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41032F032D6E903B00D4636D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 411B16152D73ECA100201E70;
+			remoteInfo = AddPackage;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		411B16242D73ECA200201E70 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				411B16202D73ECA100201E70 /* AddPackage.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		41032F0B2D6E903B00D4636D /* Pinpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pinpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +82,9 @@
 		41032F2E2D6E903D00D4636D /* PinpointUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinpointUITests.swift; sourceTree = "<group>"; };
 		41032F302D6E903D00D4636D /* PinpointUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinpointUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		411B16102D72C87400201E70 /* NewPackageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPackageView.swift; sourceTree = "<group>"; };
+		411B16162D73ECA100201E70 /* AddPackage.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AddPackage.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		411B16182D73ECA100201E70 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		411B161D2D73ECA100201E70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4144DD522D6EE07F00F4D4E4 /* PackageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageListView.swift; sourceTree = "<group>"; };
 		4144DD542D6EE09B00F4D4E4 /* PackageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageListViewModel.swift; sourceTree = "<group>"; };
 		4144DD562D6EE1B400F4D4E4 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -86,6 +115,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		411B16132D73ECA100201E70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -95,6 +131,7 @@
 				41032F0D2D6E903B00D4636D /* Pinpoint */,
 				41032F232D6E903D00D4636D /* PinpointTests */,
 				41032F2D2D6E903D00D4636D /* PinpointUITests */,
+				411B16172D73ECA100201E70 /* AddPackage */,
 				41032F0C2D6E903B00D4636D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -105,6 +142,7 @@
 				41032F0B2D6E903B00D4636D /* Pinpoint.app */,
 				41032F202D6E903D00D4636D /* PinpointTests.xctest */,
 				41032F2A2D6E903D00D4636D /* PinpointUITests.xctest */,
+				411B16162D73ECA100201E70 /* AddPackage.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,6 +188,15 @@
 			path = PinpointUITests;
 			sourceTree = "<group>";
 		};
+		411B16172D73ECA100201E70 /* AddPackage */ = {
+			isa = PBXGroup;
+			children = (
+				411B16182D73ECA100201E70 /* ShareViewController.swift */,
+				411B161D2D73ECA100201E70 /* Info.plist */,
+			);
+			path = AddPackage;
+			sourceTree = "<group>";
+		};
 		4144DD4F2D6EDC5F00F4D4E4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,10 +235,12 @@
 				41032F072D6E903B00D4636D /* Sources */,
 				41032F082D6E903B00D4636D /* Frameworks */,
 				41032F092D6E903B00D4636D /* Resources */,
+				411B16242D73ECA200201E70 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				411B161F2D73ECA100201E70 /* PBXTargetDependency */,
 			);
 			name = Pinpoint;
 			productName = Pinpoint;
@@ -234,6 +283,23 @@
 			productReference = 41032F2A2D6E903D00D4636D /* PinpointUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		411B16152D73ECA100201E70 /* AddPackage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 411B16212D73ECA200201E70 /* Build configuration list for PBXNativeTarget "AddPackage" */;
+			buildPhases = (
+				411B16122D73ECA100201E70 /* Sources */,
+				411B16132D73ECA100201E70 /* Frameworks */,
+				411B16142D73ECA100201E70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AddPackage;
+			productName = AddPackage;
+			productReference = 411B16162D73ECA100201E70 /* AddPackage.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -255,6 +321,9 @@
 						CreatedOnToolsVersion = 15.2;
 						TestTargetID = 41032F0A2D6E903B00D4636D;
 					};
+					411B16152D73ECA100201E70 = {
+						CreatedOnToolsVersion = 15.2;
+					};
 				};
 			};
 			buildConfigurationList = 41032F062D6E903B00D4636D /* Build configuration list for PBXProject "Pinpoint" */;
@@ -273,6 +342,7 @@
 				41032F0A2D6E903B00D4636D /* Pinpoint */,
 				41032F1F2D6E903D00D4636D /* PinpointTests */,
 				41032F292D6E903D00D4636D /* PinpointUITests */,
+				411B16152D73ECA100201E70 /* AddPackage */,
 			);
 		};
 /* End PBXProject section */
@@ -295,6 +365,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		41032F282D6E903D00D4636D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		411B16142D73ECA100201E70 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -339,6 +416,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		411B16122D73ECA100201E70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				411B162C2D73F33100201E70 /* NewPackageView.swift in Sources */,
+				411B162B2D73F32800201E70 /* Package.swift in Sources */,
+				411B162A2D73F2F400201E70 /* NewPackageViewModel.swift in Sources */,
+				411B16192D73ECA100201E70 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -351,6 +439,11 @@
 			isa = PBXTargetDependency;
 			target = 41032F0A2D6E903B00D4636D /* Pinpoint */;
 			targetProxy = 41032F2B2D6E903D00D4636D /* PBXContainerItemProxy */;
+		};
+		411B161F2D73ECA100201E70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 411B16152D73ECA100201E70 /* AddPackage */;
+			targetProxy = 411B161E2D73ECA100201E70 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -477,6 +570,7 @@
 		41032F352D6E903D00D4636D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -506,6 +600,7 @@
 		41032F362D6E903D00D4636D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -608,6 +703,56 @@
 			};
 			name = Release;
 		};
+		411B16222D73ECA200201E70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7LJCDWBCV3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AddPackage/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AddPackage;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiffanypan.Pinpoint.AddPackage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		411B16232D73ECA200201E70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7LJCDWBCV3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AddPackage/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AddPackage;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tiffanypan.Pinpoint.AddPackage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -643,6 +788,15 @@
 			buildConfigurations = (
 				41032F3B2D6E903D00D4636D /* Debug */,
 				41032F3C2D6E903D00D4636D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		411B16212D73ECA200201E70 /* Build configuration list for PBXNativeTarget "AddPackage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				411B16222D73ECA200201E70 /* Debug */,
+				411B16232D73ECA200201E70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

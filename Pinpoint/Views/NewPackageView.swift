@@ -62,6 +62,7 @@ struct NewPackageView: View {
                         let newPackage = Package(id: UUID().uuidString, packageName: viewModel.packageName, trackingNumber: viewModel.trackingNumber, shippingCompany: viewModel.shippingCompany, delivered: false)
                         onSave(newPackage) // call closure to pass new pkg back
                         newPackagePresented = false
+                        close()
                     } else {
                         // Display error message for user by changing this @Published variable in our VM
                         viewModel.showAlert = true
@@ -92,6 +93,10 @@ struct NewPackageView: View {
         return !viewModel.packageName.isEmpty &&
                !viewModel.trackingNumber.isEmpty &&
                !viewModel.shippingCompany.isEmpty
+    }
+    
+    func close() {
+            NotificationCenter.default.post(name: NSNotification.Name("close"), object: nil)
     }
     
 }
