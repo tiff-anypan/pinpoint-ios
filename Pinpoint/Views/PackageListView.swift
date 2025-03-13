@@ -10,6 +10,7 @@ import SwiftUI
 struct PackageListView: View {
     
     @StateObject var viewModel: PackageListViewModel
+    
     @State private var packages: [Package] = [
         Package(id: "1", packageName: "Chalk bag", trackingNumber: "1Z7F572V0227894600", shippingCompany: "UPS", delivered: true),
         Package(id: "2", packageName: "Bannoch Pro backpack", trackingNumber: "1Z7F572V0227894600", shippingCompany: "UPS", delivered: false)

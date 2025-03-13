@@ -10,8 +10,7 @@ import Foundation
 class LoginViewViewModel: ObservableObject {
     
     /* ObservableObject allows the class to have publishers
-     that emits before the object is changed
-    */
+     that emits before the object is changed */
     
     @Published var email = ""
     @Published var password = ""
