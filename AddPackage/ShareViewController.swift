@@ -11,7 +11,7 @@ import Social
 import UniformTypeIdentifiers
 import SwiftUI
 
-class ShareViewController: SLComposeServiceViewController {
+class ShareViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,7 @@ class ShareViewController: SLComposeServiceViewController {
         if itemProvider.hasItemConformingToTypeIdentifier(textDataType) {
             itemProvider.loadItem(forTypeIdentifier: textDataType, options: nil) { (providedText, error) in
                 if let error {
+                    print(error.localizedDescription)
                     self.close()
                     return
                 }
@@ -40,6 +41,7 @@ class ShareViewController: SLComposeServiceViewController {
                         // Present the SwiftUI view within a UIHostingController
                         let hostingController = UIHostingController(
                             rootView: NewPackageView(
+                                viewModel: viewModel, 
                                 newPackagePresented: .constant(true),
                                 onSave: { package in
                                     self.savePackage(package)

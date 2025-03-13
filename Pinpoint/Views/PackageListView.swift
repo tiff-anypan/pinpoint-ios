@@ -57,7 +57,8 @@ struct PackageListView: View {
             // Presents the sheet when the binding in isPresented is true.
             .sheet(isPresented: $viewModel.showingNewPackageView, content: {
                 // When we hit save, in the NewPackageView, we update this newPackageRepresented variable that we pass in, which in this case is a binding that un-presents the view.
-                NewPackageView(newPackagePresented: $viewModel.showingNewPackageView, onSave: { newPackage in packages.append(newPackage)
+                // TODO: If a user has something in their clipboard, we can pre-load it here.
+                NewPackageView(viewModel: NewPackageViewModel(), newPackagePresented: $viewModel.showingNewPackageView, onSave: { newPackage in packages.append(newPackage)
                 })
             })
         }

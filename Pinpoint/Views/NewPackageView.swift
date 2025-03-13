@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewPackageView: View {
     
-    @StateObject var viewModel = NewPackageViewModel()
+    @StateObject var viewModel: NewPackageViewModel
     // Connects back to PackageListView to determine whether this view should be presented or not
     @Binding var newPackagePresented: Bool
     
@@ -102,7 +102,7 @@ struct NewPackageView: View {
 }
 
 #Preview {
-    NewPackageView(newPackagePresented: .constant(true)) { _ in
+    NewPackageView(viewModel: NewPackageViewModel(), newPackagePresented: .constant(true)) { _ in
         // Do nothing, just a placeholder for preview
     }
 }
