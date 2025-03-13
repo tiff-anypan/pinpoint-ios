@@ -9,10 +9,14 @@ import Foundation
 
 class MainViewViewModel: ObservableObject {
     
-    @Published var currentUserId: String = ""
-    @Published var isSignedIn: Bool = false
+    // TODO: Update this Bool and this UserID string when a user logs in
+    
+    @Published var currentUserId: String = "tiff"
+    @Published var isSignedIn: Bool = true
     
     init () {}
     
-    // TODO: Perform Log-In call here
+//    public var isSignedIn: Bool {
+//        return Auth.auth().currentUser != nil
+//    }
 }

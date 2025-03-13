@@ -34,9 +34,15 @@ class ShareViewController: UIViewController {
                 
                 if let text = providedText as? String {
                     DispatchQueue.main.async {
+                        // Extract the tracking number and also determine which carrier
+                        
+                        print(self.extractPackageInfo(text: text))
+                        let trackingNum = self.extractPackageInfo(text: text)
+                        
                         // Create a ViewModel instance and pre-fill trackingNumber with shared text
                         let viewModel = NewPackageViewModel()
-                        viewModel.trackingNumber = text
+                        viewModel.trackingNumber = trackingNum.0
+                        viewModel.shippingCompany = trackingNum.1
                         
                         // Present the SwiftUI view within a UIHostingController
                         let hostingController = UIHostingController(
@@ -80,8 +86,25 @@ class ShareViewController: UIViewController {
         self.extensionContext?.completeRequest(returningItems: [], completionHandler: nil)
     }
     
+    /// Extracts the tracking number and predicted carrier from a chunk of text
+    func extractPackageInfo(text: String) -> (String, String) {
+        // Define Regex pattern for tracking numbers
+        
+        let UPSpattern = #"1Z[A-Z0-9]{16}|\b\d{18,22}\b"#
+        
+        if let regex = try? NSRegularExpression(pattern: UPSpattern, options: []) {
+            let range = NSRange(text.startIndex..<text.endIndex, in: text)
+            if let match = regex.firstMatch(in: text, options: [], range: range) {
+                let trackingNumber = String(text[Range(match.range, in: text)!])
+                return (trackingNumber, "UPS")
+            }
+        }
+        
+        return ("", "")
+    }
+    
     func savePackage(_ package: Package) {
-        // Handle package saving logic (e.g., save to UserDefaults or shared storage)
+        // Handle package saving logic (e.g., save to UserDefaults or shared storage, or backend)
         
         // Close the extension when done
         self.close()

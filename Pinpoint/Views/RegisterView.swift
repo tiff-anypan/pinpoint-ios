@@ -13,9 +13,50 @@ struct RegisterView: View {
     
     var body: some View {
         NavigationStack {
-            VStack/*@START_MENU_TOKEN@*/Text("Placeholder")/*@END_MENU_TOKEN@*/
+            VStack {
+                
+                Spacer()
+                
+                HeaderView(headerText: "Hello,",
+                           subheaderText: "first time around here?")
+                .padding(.leading)
+                
+                
+                
+                Spacer()
+                
+                // Enter credentials
+                Form {
+                    Group {
+                        TextField("Full Name", text:$viewModel.fullName)
+                            .textInputAutocapitalization(.words)
+                        TextField("Email", text:$viewModel.email)
+                            .textInputAutocapitalization(.never)
+                        
+                        // TODO: Some toggle for the field to not be secure
+                        SecureField("Password", text: $viewModel.password)
+                            .padding(.bottom)
+                    }
+                    .textFieldStyle(.plain)
+                    .autocorrectionDisabled()
+                    .listRowSeparator(.hidden)
+                    
+                    RoundedButtonView(title: "Register", backgroundColor: fieldsFilled() ? .green : .gray
+                    ) {
+                        if fieldsFilled() {
+                            viewModel.register()
+                        }
+                    }
+                }
+                .scrollContentBackground(.hidden)
+                .frame(height: 300)
+                
+                Spacer()
+                
+            }
 
             // Give option to log-in if they already have an account
+            // TODO: Factor these fonts out into a Constants
             VStack {
                 Text("Already have an account?")
                     .font(.system(size: 14, weight: .regular, design:.rounded))
@@ -28,6 +69,7 @@ struct RegisterView: View {
                 }
                 .navigationBarBackButtonHidden(true)
             }
+            
         }
     }
     
